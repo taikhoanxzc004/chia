@@ -1,0 +1,2 @@
+#!/bin/bash
+sudo su && sudo apt-get update && sudo apt-get upgrade -y && sudo apt install sshfs mhddfs -y && sudo bash /home/mount.sh
